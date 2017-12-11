@@ -39,11 +39,14 @@ void MainWindow::Read_bpm_from_arduino()
 
 void MainWindow::Draw_bpm_from_arduino()
 {
-    QString draw_line;
-    QDate cd = QDate::currentDate();
-    QTime ct ;
+    QDate cd;
+    QTime ct = QTime::currentTime();
     QString date;
-
+    date.append(cd.year);
+    date.append('-');
+    date.appedn(cd.month);
+    date.append('-');
+    date.appedn(cd.day);
     QString time=ct.toString();
     QVector< QString > vector;
     vector.append(time);
