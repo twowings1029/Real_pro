@@ -15,6 +15,7 @@
 #include <QtSql>
 #include <QFileDialog>
 #include <QSqlDatabase>
+#include <QStringList>
 namespace Ui {
 class MainWindow;
 }
@@ -36,6 +37,8 @@ private slots:
 
     void Save_Data();
 
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;

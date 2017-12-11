@@ -113,5 +113,37 @@ void MainWindow::on_Close_port_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
+    QFile file(file_dir);
+    QString day_filter;
+    int sum=0;
+    int cnt=0;
+    day_filter.append(ui->year_combo->currentText());
+    day_filter.append("-");
+    day_filter.append(ui->month_combo->currentText());
+    day_filter.append("-");
+    day_filter.append(ui->day_combo->currentText());
 
+    if(file.open(QIODevice::ReadWrite | QIODevice :: Text))
+    {
+        QTextStream stream(&file);
+        while(stream.atEnd()==false)
+        {
+          QString line=stream.readLine();
+          QStringList cmp_list= line.split(" ");
+          if(day_filter.compare(cmp_list[0])==0)
+          {
+            QString num_str=cmp_list[2];
+            sum+=num_str.toInt();
+            cnt++;
+          }
+        }
+        if(cnt==0)
+        {
+            ui->bpm_avg_label->setText("Select other day!!");
+        }
+        else
+        {
+            ui->bpm_avg_label->setNum(sum/(float)cnt);
+        }
+    }
 }
