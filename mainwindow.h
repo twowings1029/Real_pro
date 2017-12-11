@@ -36,7 +36,7 @@ private slots:
 
     void Save_Data();
 
-    void Summary_Data();
+
 private:
     Ui::MainWindow *ui;
     QSerialPort *port;
