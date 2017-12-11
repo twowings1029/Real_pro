@@ -41,8 +41,8 @@ void MainWindow::Draw_bpm_from_arduino()
 {
     QString draw_line;
     QDate cd = QDate::currentDate();
-    QTime ct = QTime::currentTime();
-    QString date=cd.toString();
+    QTime ct ;
+    QString date;
 
     QString time=ct.toString();
     QVector< QString > vector;
@@ -56,11 +56,11 @@ void MainWindow::Draw_bpm_from_arduino()
         QTextStream stream(&file);
         while(stream.readLine()!="")
         {
-            stream<<stream.readLine();
+           //stream<<endl;
         }
         stream<<date<<" ";
         stream<<time<<" ";
-        stream<<read_bpm_data<<endl;
+        stream<<read_bpm_data;
         file.flush();
         file.close();
     }
