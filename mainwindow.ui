@@ -89,7 +89,7 @@
     <property name="geometry">
      <rect>
       <x>430</x>
-      <y>400</y>
+      <y>389</y>
       <width>110</width>
       <height>40</height>
      </rect>
@@ -102,7 +102,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>370</y>
+      <y>360</y>
       <width>76</width>
       <height>20</height>
      </rect>
@@ -112,7 +112,7 @@
     <property name="geometry">
      <rect>
       <x>139</x>
-      <y>370</y>
+      <y>360</y>
       <width>76</width>
       <height>20</height>
      </rect>
@@ -122,7 +122,7 @@
     <property name="geometry">
      <rect>
       <x>251</x>
-      <y>370</y>
+      <y>360</y>
       <width>76</width>
       <height>20</height>
      </rect>
@@ -171,23 +171,26 @@
     <property name="geometry">
      <rect>
       <x>37</x>
-      <y>401</y>
+      <y>390</y>
       <width>53</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string> bpm avg</string>
+     <string> Bpm avg</string>
     </property>
    </widget>
    <widget class="QLabel" name="bpm_avg_label">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>430</y>
-      <width>81</width>
-      <height>31</height>
+      <y>409</y>
+      <width>60</width>
+      <height>30</height>
      </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
     </property>
     <property name="text">
      <string/>
@@ -197,36 +200,39 @@
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>401</y>
+      <y>390</y>
       <width>58</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string> bpm max</string>
+     <string> Bpm max</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>401</y>
+      <y>390</y>
       <width>54</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string> bpm min</string>
+     <string> Bpm min</string>
     </property>
    </widget>
    <widget class="QLabel" name="bpm_max_label">
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>430</y>
+      <y>409</y>
       <width>61</width>
-      <height>31</height>
+      <height>30</height>
      </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
     </property>
     <property name="text">
      <string/>
@@ -236,10 +242,13 @@
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>430</y>
+      <y>409</y>
       <width>61</width>
-      <height>31</height>
+      <height>30</height>
      </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
     </property>
     <property name="text">
      <string/>
