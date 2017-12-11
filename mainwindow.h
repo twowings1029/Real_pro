@@ -28,13 +28,15 @@ public:
     ~MainWindow();
 
 private slots:
-    void Read_bpm_from_arduino();
+    void Read_data_from_arduino();
 
     void on_Close_port_clicked();
 
     void on_Connect_Port_clicked();
 
-    void Draw_bpm_from_arduino();
+    void Save_Data();
+
+    void Summary_Data();
 private:
     Ui::MainWindow *ui;
     QSerialPort *port;

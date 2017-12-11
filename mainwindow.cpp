@@ -22,8 +22,8 @@ MainWindow::MainWindow(QWidget *parent) :
     port->setParity(QSerialPort::NoParity);
     port->setStopBits(QSerialPort::OneStop);
     port->setFlowControl(QSerialPort::NoFlowControl);
-    QObject::connect(port,SIGNAL(readyRead()),this,SLOT(Read_bpm_from_arduino()));
-    QObject::connect(port,SIGNAL(readyRead()),this,SLOT(Draw_bpm_from_arduino()));
+    QObject::connect(port,SIGNAL(readyRead()),this,SLOT(Read_data_from_arduino()));
+    QObject::connect(port,SIGNAL(readyRead()),this,SLOT(Save_Data()));
 }
 
 MainWindow::~MainWindow()
@@ -31,7 +31,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::Read_bpm_from_arduino()
+void MainWindow::Read_data_from_arduino()
 {
     int int_data;
     read_bpm_data=port->readLine(3);
@@ -41,7 +41,7 @@ void MainWindow::Read_bpm_from_arduino()
     ui->bpm_label->setNum(int_data);
 }
 
-void MainWindow::Draw_bpm_from_arduino()
+void MainWindow::Save_Data()
 {
     int year;
     int month;
@@ -79,6 +79,21 @@ void MainWindow::Draw_bpm_from_arduino()
     }
 }
 
+void MainWindow::Summary_Data()
+{
+    QFile file(file_dir);
+    if(file.open(QIODevice::ReadWrite | QIODevice :: Text))
+    {
+
+
+            stream<<day_cal<<" ";
+            stream<<time<<" ";
+            stream<<read_bpm_data<<endl;
+            file.flush();
+            file.close();
+
+    }
+}
 void MainWindow::on_Connect_Port_clicked()
 {
     port->open(QIODevice::ReadWrite);
