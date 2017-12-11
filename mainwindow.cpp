@@ -33,21 +33,36 @@ MainWindow::~MainWindow()
 
 void MainWindow::Read_bpm_from_arduino()
 {
+    int int_data;
     read_bpm_data=port->readLine(3);
-    ui->bpm_label ->setText(read_bpm_data);
+    int_data=read_bpm_data.toInt();
+    int_data*=3;
+    read_bpm_data=QString::number(int_data);
+    ui->bpm_label->setNum(int_data);
 }
 
 void MainWindow::Draw_bpm_from_arduino()
 {
-    QDate cd =QDate::currentDate();
+    int year;
+    int month;
+    int day;
+    QDate cd=QDate::currentDate();
+    QString day_cal;
     QTime ct = QTime::currentTime();
-    QString date=cd.toString();
     QString time=ct.toString();
+    year=cd.year();
+    month=cd.month();
+    day=cd.day();
     QVector< QString > vector;
+    day_cal=day_cal.append(QString::number(year));
+    day_cal=day_cal.append("-");
+    day_cal=day_cal.append(QString::number(month));
+    day_cal=day_cal.append("-");
+    day_cal=day_cal.append(QString::number(day));
+
     vector.append(time);
     vector.append(read_bpm_data);
     QFile file(file_dir);
-
 
     if(file.open(QIODevice::ReadWrite | QIODevice :: Text))
     {
@@ -55,15 +70,13 @@ void MainWindow::Draw_bpm_from_arduino()
         if(read_bpm_data.toInt()!=0)
         {
             while(stream.readLine()!="");
-            stream<<date<<" ";
+            stream<<day_cal<<" ";
             stream<<time<<" ";
             stream<<read_bpm_data<<endl;
             file.flush();
             file.close();
         }
-
     }
-
 }
 
 void MainWindow::on_Connect_Port_clicked()
