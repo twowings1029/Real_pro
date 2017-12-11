@@ -12,6 +12,7 @@ static QString file_dir="data.txt";
 #define Criteria_year (2017)
 #define Len_For_month (12)
 #define Len_For_Day (31)
+#define INF (400)
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -84,7 +85,7 @@ void MainWindow::Save_Data()
     if(file.open(QIODevice::ReadWrite | QIODevice :: Text))
     {
         QTextStream stream(&file);
-        if(read_bpm_data.toInt()<=50)
+        if(read_bpm_data.toInt()>=50)
         {
             while(stream.readLine()!="");
             stream<<day_cal<<" ";
@@ -115,8 +116,10 @@ void MainWindow::on_pushButton_clicked()
 {
     QFile file(file_dir);
     QString day_filter;
-    int sum=0;
-    int cnt=0;
+    int bpm_sum=0;
+    int bpm_cnt=0;
+    int bpm_max=0;
+    int bpm_min=INF;
     day_filter.append(ui->year_combo->currentText());
     day_filter.append("-");
     day_filter.append(ui->month_combo->currentText());
@@ -132,18 +135,23 @@ void MainWindow::on_pushButton_clicked()
           QStringList cmp_list= line.split(" ");
           if(day_filter.compare(cmp_list[0])==0)
           {
-            QString num_str=cmp_list[2];
-            sum+=num_str.toInt();
-            cnt++;
+            QString bpm_str=cmp_list[2];
+            int bpm=bpm_str.toInt();
+            bpm_sum+=bpm;
+            if(bpm_max<bpm) bpm_max=bpm;
+            if(bpm_min>bpm) bpm_min=bpm;
+            bpm_cnt++;
           }
         }
-        if(cnt==0)
+        if(bpm_cnt==0)
         {
-            ui->bpm_avg_label->setText("Select other day!!");
+            ui->bpm_avg_label->setText("No Data");
         }
         else
         {
-            ui->bpm_avg_label->setNum((int)(sum/cnt+0.5f));
+            ui->bpm_avg_label->setNum((int)(bpm_sum/bpm_cnt+0.5f));
+            ui->bpm_max_label->setNum(bpm_max);
+            ui->bpm_min_label->setNum(bpm_min);
         }
     }
 }
