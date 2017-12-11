@@ -6,8 +6,8 @@
 
 /*For windows*/
 static QString arduino_port_name="com5";
-static QByteArray read_bpm_data;
-
+static QString read_bpm_data;
+static QString file_dir="data.txt";
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     port=new QSerialPort();
     port->setPortName(arduino_port_name);
-    port->setBaudRate(QSerialPort::Baud9600);
+    port->setBaudRate(QSerialPort::Baud115200);
     port->setDataBits(QSerialPort::Data8);
     port->setParity(QSerialPort::NoParity);
     port->setStopBits(QSerialPort::OneStop);
@@ -39,27 +39,32 @@ void MainWindow::Read_bpm_from_arduino()
 
 void MainWindow::Draw_bpm_from_arduino()
 {
-    qint64 width;
     QString draw_line;
-    int i;
-    width=read_bpm_data.toInt();
-    ui->bpm_graph->setText(" ");
-    draw_line.clear();
-    for(i=0;i<width*2;i++)
+    QDate cd = QDate::currentDate();
+    QTime ct = QTime::currentTime();
+    QString date=cd.toString();
+
+    QString time=ct.toString();
+    QVector< QString > vector;
+    vector.append(time);
+    vector.append(read_bpm_data);
+    QFile file(file_dir);
+
+
+    if(file.open(QIODevice::ReadWrite | QIODevice :: Text))
     {
-        draw_line.append('=');
+        QTextStream stream(&file);
+        while(stream.readLine()!="")
+        {
+            stream<<stream.readLine();
+        }
+        stream<<date<<" ";
+        stream<<time<<" ";
+        stream<<read_bpm_data<<endl;
+        file.flush();
+        file.close();
     }
-    ui->bpm_graph->setText(draw_line);
-    /*QPixmap p;
-    QPainter tmp(&p);
-    QColor White(255,255,255,0);
-    tmp.drawRect(0,0,400,20);
-    tmp.setPen(White);
-    ui->bpm_label->setPixmap(p);
-    tmp.drawRect(0,0,2*width,20);
-    tmp.setPen(White);
-    tmp.end();
-    ui->bpm_label->setPixmap(p);*/
+
 }
 
 void MainWindow::on_Connect_Port_clicked()

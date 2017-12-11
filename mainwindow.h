@@ -9,6 +9,12 @@
 #include <QLine>
 #include <QColor>
 #include <QPaintDevice>
+#include <QDateTime>
+#include <QVector>
+#include <QString>
+#include <QtSql>
+#include <QFileDialog>
+#include <QSqlDatabase>
 namespace Ui {
 class MainWindow;
 }
