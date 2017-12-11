@@ -8,7 +8,7 @@
 static QString arduino_port_name="com5";
 static QString read_bpm_data;
 static QString file_dir="data.txt";
-#define Len_For_year (5)
+#define Len_For_year (23)
 #define Criteria_year (2017)
 #define Len_For_month (12)
 #define Len_For_Day (31)
@@ -143,7 +143,7 @@ void MainWindow::on_pushButton_clicked()
         }
         else
         {
-            ui->bpm_avg_label->setNum(sum/(float)cnt);
+            ui->bpm_avg_label->setNum((int)(sum/cnt+0.5f));
         }
     }
 }
