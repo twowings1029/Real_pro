@@ -8,17 +8,19 @@
 static QString arduino_port_name="com5";
 static QString read_bpm_data;
 static QString file_dir="data.txt";
-#define Len_For_year (23)
-#define Criteria_year (2017)
-#define Len_For_month (12)
-#define Len_For_Day (31)
-#define INF (400)
+static QVector <double> bpm_x(101),bpm_y(101);
+static int graph_count;
+static int bpm_int_data;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     ui->bpm_label ->setText(".. Waiting ..");
+    ui->bpm_plot->xAxis->setLabel("Time");
+    ui->bpm_plot->yAxis->setLabel("Bpm");
+    ui->bpm_plot->xAxis->setRange(0,100);
+    ui->bpm_plot->yAxis->setRange(0,200);
 
     for(int i=0;i<Len_For_year;i++)
     {
@@ -42,6 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
     port->setFlowControl(QSerialPort::NoFlowControl);
     QObject::connect(port,SIGNAL(readyRead()),this,SLOT(Read_data_from_arduino()));
     QObject::connect(port,SIGNAL(readyRead()),this,SLOT(Save_Data()));
+    QObject::connect(port,SIGNAL(readyRead()),this,SLOT(Draw_bpm_data()));
 }
 
 MainWindow::~MainWindow()
@@ -51,12 +54,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::Read_data_from_arduino()
 {
-    int int_data;
+
     read_bpm_data=port->readLine(3);
-    int_data=read_bpm_data.toInt();
-    int_data*=3;
-    read_bpm_data=QString::number(int_data);
-    ui->bpm_label->setNum(int_data);
+    bpm_int_data=read_bpm_data.toInt();
+    bpm_int_data*=3;
+    read_bpm_data=QString::number(bpm_int_data);
+    if(bpm_int_data>=Bpm_Lower_Bound)
+    {
+        ui->bpm_label->setNum(bpm_int_data);
+    }
 }
 
 void MainWindow::Save_Data()
@@ -71,21 +77,26 @@ void MainWindow::Save_Data()
     year=cd.year();
     month=cd.month();
     day=cd.day();
-    QVector< QString > vector;
+
     day_cal=day_cal.append(QString::number(year));
     day_cal=day_cal.append("-");
     day_cal=day_cal.append(QString::number(month));
     day_cal=day_cal.append("-");
     day_cal=day_cal.append(QString::number(day));
+    if(bpm_int_data>=Bpm_Lower_Bound)
+    {
+        bpm_x[graph_count]=graph_count;
+        bpm_y[graph_count++]=bpm_int_data;
+        graph_count%=100;
+    }
 
-    vector.append(time);
-    vector.append(read_bpm_data);
+
     QFile file(file_dir);
 
     if(file.open(QIODevice::ReadWrite | QIODevice :: Text))
     {
         QTextStream stream(&file);
-        if(read_bpm_data.toInt()>=50)
+        if(read_bpm_data.toInt()>=Bpm_Lower_Bound)
         {
             while(stream.readLine()!="");
             stream<<day_cal<<" ";
@@ -126,6 +137,7 @@ void MainWindow::on_pushButton_clicked()
     day_filter.append("-");
     day_filter.append(ui->day_combo->currentText());
 
+
     if(file.open(QIODevice::ReadWrite | QIODevice :: Text))
     {
         QTextStream stream(&file);
@@ -146,6 +158,8 @@ void MainWindow::on_pushButton_clicked()
         if(bpm_cnt==0)
         {
             ui->bpm_avg_label->setText("No Data");
+            ui->bpm_max_label->setText("No Data");
+            ui->bpm_min_label->setText("No Data");
         }
         else
         {
@@ -155,3 +169,16 @@ void MainWindow::on_pushButton_clicked()
         }
     }
 }
+
+
+void MainWindow::Draw_bpm_data()
+{
+    ui->bpm_plot->addGraph();
+    ui->bpm_plot->graph(0)->setData(bpm_x,bpm_y);
+    ui->bpm_plot->xAxis->setLabel("Time");
+    ui->bpm_plot->yAxis->setLabel("Bpm");
+    ui->bpm_plot->xAxis->setRange(0,100);
+    ui->bpm_plot->yAxis->setRange(0,200);
+    ui->bpm_plot->replot();
+}
+

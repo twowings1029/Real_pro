@@ -12,10 +12,20 @@
 #include <QDateTime>
 #include <QVector>
 #include <QString>
-#include <QtSql>
+#include <QStringList>
 #include <QFileDialog>
 #include <QSqlDatabase>
-#include <QStringList>
+#include <QtSql>
+#include <QTime>
+#include <QVector>
+#include <qDebug>
+
+#define Len_For_year (23)
+#define Criteria_year (2017)
+#define Len_For_month (12)
+#define Len_For_Day (31)
+#define INF (400)
+#define Bpm_Lower_Bound (50)
 namespace Ui {
 class MainWindow;
 }
@@ -37,12 +47,14 @@ private slots:
 
     void Save_Data();
 
+    void Draw_bpm_data();
 
     void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
     QSerialPort *port;
+
 };
 
 #endif // MAINWINDOW_H
