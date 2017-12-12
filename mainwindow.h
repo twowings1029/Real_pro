@@ -18,7 +18,8 @@
 #include <QtSql>
 #include <QTime>
 #include <QVector>
-#include <qDebug>
+#include <QDebug>
+#include "qcustomplot.h"
 
 #define Len_For_year (23)
 #define Criteria_year (2017)
@@ -26,6 +27,7 @@
 #define Len_For_Day (31)
 #define INF (400)
 #define Bpm_Lower_Bound (50)
+#define Tmp_Lower_Bound (20)
 namespace Ui {
 class MainWindow;
 }
@@ -49,7 +51,9 @@ private slots:
 
     void Draw_bpm_data();
 
-    void on_pushButton_clicked();
+    void Draw_tmp_data();
+
+    void on_load_data_button_clicked();
 
 private:
     Ui::MainWindow *ui;
