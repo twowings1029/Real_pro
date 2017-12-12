@@ -10,6 +10,12 @@
     <height>631</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+    <pointsize>8</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -54,6 +60,9 @@
     </property>
     <property name="text">
      <string>Current Bpm</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="bpm_label">
@@ -166,6 +175,9 @@
     <property name="text">
      <string> Bpm avg</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="bpm_avg_label">
     <property name="geometry">
@@ -195,6 +207,9 @@
     <property name="text">
      <string> Bpm max</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
@@ -207,6 +222,9 @@
     </property>
     <property name="text">
      <string> Bpm min</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="bpm_max_label">
@@ -282,6 +300,9 @@
     <property name="text">
      <string>Current Tmp</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="velo_label">
     <property name="geometry">
@@ -314,6 +335,9 @@
     <property name="text">
      <string>Current Velo</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QCustomPlot" name="tmp_plot" native="true">
     <property name="geometry">
@@ -337,6 +361,9 @@
     <property name="text">
      <string> tmp avg</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="label_11">
     <property name="geometry">
@@ -349,6 +376,9 @@
     </property>
     <property name="text">
      <string>tmp min</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="tmp_max_label">
@@ -378,6 +408,9 @@
     </property>
     <property name="text">
      <string>tmp max</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="tmp_min_label">
@@ -419,7 +452,7 @@
      <x>0</x>
      <y>0</y>
      <width>591</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

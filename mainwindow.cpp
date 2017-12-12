@@ -1,11 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 /*For raspberry pi*/
-
-//static QString arduino_port_name="/dev/ttyACM0";
-
+static QString arduino_port_name="/dev/ttyACM0";
 /*For windows*/
-static QString arduino_port_name="com5";
+//static QString arduino_port_name="com5";
 static QString read_bpm_data;
 static QString file_dir="data.txt";
 static QVector <double> bpm_x(101),bpm_y(101);
@@ -29,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->bpm_plot->yAxis->setRange(0,200);
 
     ui->tmp_plot->xAxis->setLabel("Time");
-    ui->tmp_plot->yAxis->setLabel("tmp");
+    ui->tmp_plot->yAxis->setLabel("Temp(℃)");
     ui->tmp_plot->xAxis->setRange(0,100);
     ui->tmp_plot->yAxis->setRange(20,40);
 
@@ -215,7 +213,6 @@ void MainWindow::on_load_data_button_clicked()
             ui->tmp_max_label->setNum(tmp_max);
             ui->tmp_min_label->setNum(tmp_min);
         }
-
     }
 }
 
@@ -235,7 +232,7 @@ void MainWindow::Draw_tmp_data()
     ui->tmp_plot->addGraph();
     ui->tmp_plot->graph(0)->setData(tmp_x,tmp_y);
     ui->tmp_plot->xAxis->setLabel("Time");
-    ui->tmp_plot->yAxis->setLabel("tmp");
+    ui->tmp_plot->yAxis->setLabel("Temp(℃)");
     ui->tmp_plot->xAxis->setRange(0,100);
     ui->tmp_plot->yAxis->setRange(20,40);
     ui->tmp_plot->replot();
