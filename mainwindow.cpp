@@ -185,7 +185,7 @@ void MainWindow::on_load_data_button_clicked()
           if(day_filter.compare(cmp_list.value(0))==0)
           {
             QString bpm_str=cmp_list.value(2);
-            QString tmp_str=cmp_list.value(2);
+            QString tmp_str=cmp_list.value(3);
             int bpm=bpm_str.toInt();
             int tmp=tmp_str.toInt();
             bpm_sum+=bpm;
