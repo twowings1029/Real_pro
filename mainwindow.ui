@@ -49,9 +49,9 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>20</x>
       <y>380</y>
-      <width>81</width>
+      <width>90</width>
       <height>30</height>
      </rect>
     </property>
@@ -68,9 +68,9 @@
    <widget class="QLabel" name="bpm_label">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>110</x>
       <y>380</y>
-      <width>61</width>
+      <width>70</width>
       <height>30</height>
      </rect>
     </property>
@@ -97,7 +97,7 @@
    <widget class="QComboBox" name="year_combo">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>441</y>
       <width>76</width>
       <height>20</height>
@@ -107,7 +107,7 @@
    <widget class="QComboBox" name="month_combo">
     <property name="geometry">
      <rect>
-      <x>139</x>
+      <x>129</x>
       <y>441</y>
       <width>76</width>
       <height>20</height>
@@ -117,7 +117,7 @@
    <widget class="QComboBox" name="day_combo">
     <property name="geometry">
      <rect>
-      <x>251</x>
+      <x>241</x>
       <y>441</y>
       <width>76</width>
       <height>20</height>
@@ -127,7 +127,7 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>30</x>
       <y>421</y>
       <width>56</width>
       <height>12</height>
@@ -140,7 +140,7 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>140</x>
       <y>421</y>
       <width>56</width>
       <height>12</height>
@@ -153,7 +153,7 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>250</x>
       <y>421</y>
       <width>56</width>
       <height>12</height>
@@ -166,7 +166,7 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>27</x>
+      <x>17</x>
       <y>471</y>
       <width>69</width>
       <height>16</height>
@@ -176,15 +176,15 @@
      <string> Bpm avg</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="bpm_avg_label">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>20</x>
       <y>490</y>
-      <width>60</width>
+      <width>69</width>
       <height>30</height>
      </rect>
     </property>
@@ -198,7 +198,7 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>130</x>
       <y>471</y>
       <width>74</width>
       <height>16</height>
@@ -208,13 +208,13 @@
      <string> Bpm max</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>240</x>
       <y>471</y>
       <width>70</width>
       <height>16</height>
@@ -224,15 +224,15 @@
      <string> Bpm min</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="bpm_max_label">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>130</x>
       <y>490</y>
-      <width>61</width>
+      <width>70</width>
       <height>30</height>
      </rect>
     </property>
@@ -246,9 +246,9 @@
    <widget class="QLabel" name="bpm_min_label">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>240</x>
       <y>490</y>
-      <width>61</width>
+      <width>70</width>
       <height>30</height>
      </rect>
     </property>
@@ -262,9 +262,9 @@
    <widget class="QCustomPlot" name="bpm_plot" native="true">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>20</x>
       <y>10</y>
-      <width>490</width>
+      <width>520</width>
       <height>180</height>
      </rect>
     </property>
@@ -272,9 +272,9 @@
    <widget class="QLabel" name="tmp_label">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>280</x>
       <y>380</y>
-      <width>61</width>
+      <width>70</width>
       <height>30</height>
      </rect>
     </property>
@@ -288,9 +288,9 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>190</x>
       <y>380</y>
-      <width>81</width>
+      <width>90</width>
       <height>30</height>
      </rect>
     </property>
@@ -307,9 +307,9 @@
    <widget class="QLabel" name="velo_label">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>450</x>
       <y>380</y>
-      <width>61</width>
+      <width>70</width>
       <height>30</height>
      </rect>
     </property>
@@ -323,9 +323,9 @@
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>360</x>
       <y>380</y>
-      <width>81</width>
+      <width>90</width>
       <height>30</height>
      </rect>
     </property>
@@ -342,9 +342,9 @@
    <widget class="QCustomPlot" name="tmp_plot" native="true">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>20</x>
       <y>190</y>
-      <width>490</width>
+      <width>520</width>
       <height>180</height>
      </rect>
     </property>
@@ -352,7 +352,7 @@
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>27</x>
+      <x>17</x>
       <y>521</y>
       <width>69</width>
       <height>16</height>
@@ -362,13 +362,13 @@
      <string> tmp avg</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>240</x>
       <y>521</y>
       <width>70</width>
       <height>16</height>
@@ -378,15 +378,15 @@
      <string>tmp min</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="tmp_max_label">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>130</x>
       <y>540</y>
-      <width>61</width>
+      <width>70</width>
       <height>30</height>
      </rect>
     </property>
@@ -400,7 +400,7 @@
    <widget class="QLabel" name="label_12">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>130</x>
       <y>521</y>
       <width>74</width>
       <height>16</height>
@@ -410,15 +410,15 @@
      <string>tmp max</string>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="tmp_min_label">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>240</x>
       <y>540</y>
-      <width>61</width>
+      <width>70</width>
       <height>30</height>
      </rect>
     </property>
@@ -432,9 +432,9 @@
    <widget class="QLabel" name="tmp_avg_label">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>20</x>
       <y>540</y>
-      <width>60</width>
+      <width>69</width>
       <height>30</height>
      </rect>
     </property>
@@ -452,7 +452,7 @@
      <x>0</x>
      <y>0</y>
      <width>591</width>
-     <height>18</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
