@@ -50,7 +50,7 @@ Dialog::Dialog(QWidget *parent) :
 	ui->tmp_plot->xAxis->setTickLabelFont(QFont(QFont().family(), 7));
 	ui->tmp_plot->yAxis->setTickLabelFont(QFont(QFont().family(), 7));
     ui->tmp_plot->xAxis->setRange(0,Hour_To_Sec);
-    ui->tmp_plot->yAxis->setRange(20,40);
+    ui->tmp_plot->yAxis->setRange(10,40);
     ui->tmp_plot->xAxis->setTickLabelType(QCPAxis::ltDateTime);
     ui->tmp_plot->xAxis->setDateTimeSpec(Qt::UTC);
     ui->tmp_plot->xAxis->setDateTimeFormat("hh:mm");
