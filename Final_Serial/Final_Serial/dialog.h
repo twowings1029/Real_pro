@@ -16,6 +16,8 @@
 #define MAX_Pri_Buffer ((4000)+(1))
 #define Hour_To_Sec (3600)
 #define Min_To_Sec (60)
+#define Unit_bpm_graph (40)
+#define Unit_temp_graph (5)
 namespace Ui {
 class Dialog;
 }

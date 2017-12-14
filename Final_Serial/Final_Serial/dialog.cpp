@@ -38,6 +38,8 @@ Dialog::Dialog(QWidget *parent) :
     ui->bpm_plot->xAxis->setDateTimeFormat("hh:mm");
     ui->bpm_plot->xAxis->setAutoTickStep(false);
     ui->bpm_plot->xAxis->setTickStep(600);
+	ui->bpm_plot->yAxis->setAutoTickStep(false);
+	ui->bpm_plot->yAxis->setTickStep(Unit_bpm_graph);
     ui->bpm_plot->replot();
 
     ui->tmp_plot->addGraph();
@@ -54,6 +56,8 @@ Dialog::Dialog(QWidget *parent) :
     ui->tmp_plot->xAxis->setDateTimeFormat("hh:mm");
     ui->tmp_plot->xAxis->setAutoTickStep(false);
     ui->tmp_plot->xAxis->setTickStep(600);
+	ui->tmp_plot->yAxis->setAutoTickStep(false);
+	ui->tmp_plot->yAxis->setTickStep(Unit_temp_graph);
     ui->tmp_plot->replot();
 }
 

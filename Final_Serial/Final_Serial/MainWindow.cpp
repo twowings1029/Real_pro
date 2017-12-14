@@ -57,8 +57,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->bpm_plot->xAxis->setDateTimeFormat("h:mm:ss");
     ui->bpm_plot->xAxis->setAutoTickStep(false);
     ui->bpm_plot->xAxis->setTickStep(Unit_Graph_time);
-    ui->tmp_plot->yAxis->setAutoTickStep(false);
-    ui->tmp_plot->yAxis->setTickStep(Unit_bpm_graph);
+	ui->bpm_plot->yAxis->setAutoTickStep(false);
+	ui->bpm_plot->yAxis->setTickStep(Unit_bpm_graph);
     ui->bpm_plot->replot();
 
     ui->tmp_plot->xAxis->setLabel("Time");
