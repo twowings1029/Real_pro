@@ -35,8 +35,9 @@ private slots:
 
     void Draw_pri_data();
 
-
     void on_draw_data_button_clicked();
+
+    void Clear_Previous_Data();
 
 private:
     Ui::Dialog *ui;

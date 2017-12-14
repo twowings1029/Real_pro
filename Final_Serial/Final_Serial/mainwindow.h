@@ -36,8 +36,6 @@
 #define Age_List_Num (10)
 #define Man (0)
 #define Woman (1)
-//#define Normal_speed (2)
-//#define Walk_speed (4)
 #define Intensity_50_flag (0)
 #define Intensity_60_flag (1)
 #define Intensity_70_flag (2)

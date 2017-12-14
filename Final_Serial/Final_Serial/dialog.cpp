@@ -1,8 +1,6 @@
 #include "dialog.h"
 #include "ui_dialog.h"
 static QString file_dir="data.txt";
-static QVector <double> bpm_x(MAX_Pri_Buffer),bpm_y(MAX_Pri_Buffer);
-static QVector <double> tmp_x(MAX_Pri_Buffer),tmp_y(MAX_Pri_Buffer);
 static QVector <double> graph_time_x(MAX_Pri_Buffer),graph_bpm_y(MAX_Pri_Buffer),graph_tmp_y(MAX_Pri_Buffer);
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
@@ -65,6 +63,14 @@ Dialog::~Dialog()
 
 }
 
+void Dialog::Clear_Previous_Data()
+{
+    for(int i=0;i<MAX_Pri_Buffer;i++)
+    {
+        graph_time_x[i]=graph_bpm_y[i]=graph_tmp_y[i]=0;
+    }
+
+}
 void Dialog::on_load_data_button_clicked()
 {
     QFile file(file_dir);
@@ -165,6 +171,7 @@ void Dialog::Draw_pri_data()
 
 void Dialog::on_draw_data_button_clicked()
 {
+    Clear_Previous_Data();
     on_load_data_button_clicked();
     Draw_pri_data();
 }
