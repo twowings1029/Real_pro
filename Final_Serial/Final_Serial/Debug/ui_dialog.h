@@ -50,6 +50,7 @@ public:
     QLabel *label;
     QComboBox *hour_combo;
     QPushButton *draw_data_button;
+    QLabel *label_8;
 
     void setupUi(QDialog *Dialog)
     {
@@ -65,32 +66,32 @@ public:
         label_2->setGeometry(QRect(40, 399, 88, 12));
         bpm_min_label = new QLabel(Dialog);
         bpm_min_label->setObjectName(QStringLiteral("bpm_min_label"));
-        bpm_min_label->setGeometry(QRect(299, 479, 93, 30));
+        bpm_min_label->setGeometry(QRect(299, 489, 93, 30));
         bpm_min_label->setFrameShape(QFrame::StyledPanel);
         label_7 = new QLabel(Dialog);
         label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(299, 460, 86, 16));
+        label_7->setGeometry(QRect(299, 470, 86, 16));
         label_7->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         tmp_avg_label = new QLabel(Dialog);
         tmp_avg_label->setObjectName(QStringLiteral("tmp_avg_label"));
-        tmp_avg_label->setGeometry(QRect(40, 529, 92, 30));
+        tmp_avg_label->setGeometry(QRect(40, 539, 92, 30));
         tmp_avg_label->setFrameShape(QFrame::StyledPanel);
         bpm_avg_label = new QLabel(Dialog);
         bpm_avg_label->setObjectName(QStringLiteral("bpm_avg_label"));
-        bpm_avg_label->setGeometry(QRect(40, 479, 92, 30));
+        bpm_avg_label->setGeometry(QRect(40, 489, 92, 30));
         bpm_avg_label->setFrameShape(QFrame::StyledPanel);
         bpm_avg_label->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         tmp_max_label = new QLabel(Dialog);
         tmp_max_label->setObjectName(QStringLiteral("tmp_max_label"));
-        tmp_max_label->setGeometry(QRect(170, 529, 93, 30));
+        tmp_max_label->setGeometry(QRect(170, 539, 93, 30));
         tmp_max_label->setFrameShape(QFrame::StyledPanel);
         label_11 = new QLabel(Dialog);
         label_11->setObjectName(QStringLiteral("label_11"));
-        label_11->setGeometry(QRect(299, 510, 86, 16));
+        label_11->setGeometry(QRect(299, 520, 86, 16));
         label_11->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         tmp_min_label = new QLabel(Dialog);
         tmp_min_label->setObjectName(QStringLiteral("tmp_min_label"));
-        tmp_min_label->setGeometry(QRect(299, 529, 93, 30));
+        tmp_min_label->setGeometry(QRect(299, 539, 93, 30));
         tmp_min_label->setFrameShape(QFrame::StyledPanel);
         label_4 = new QLabel(Dialog);
         label_4->setObjectName(QStringLiteral("label_4"));
@@ -100,26 +101,26 @@ public:
         load_data_button->setGeometry(QRect(430, 460, 100, 40));
         label_6 = new QLabel(Dialog);
         label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(170, 460, 90, 16));
+        label_6->setGeometry(QRect(170, 470, 90, 16));
         label_6->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         label_10 = new QLabel(Dialog);
         label_10->setObjectName(QStringLiteral("label_10"));
-        label_10->setGeometry(QRect(37, 510, 85, 16));
-        label_10->setAlignment(Qt::AlignCenter);
+        label_10->setGeometry(QRect(37, 520, 85, 16));
+        label_10->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         bpm_max_label = new QLabel(Dialog);
         bpm_max_label->setObjectName(QStringLiteral("bpm_max_label"));
-        bpm_max_label->setGeometry(QRect(170, 479, 93, 30));
+        bpm_max_label->setGeometry(QRect(170, 489, 93, 30));
         bpm_max_label->setFrameShape(QFrame::StyledPanel);
         label_3 = new QLabel(Dialog);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(170, 399, 88, 12));
         label_5 = new QLabel(Dialog);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(37, 460, 85, 16));
+        label_5->setGeometry(QRect(37, 470, 85, 16));
         label_5->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         label_12 = new QLabel(Dialog);
         label_12->setObjectName(QStringLiteral("label_12"));
-        label_12->setGeometry(QRect(170, 510, 90, 16));
+        label_12->setGeometry(QRect(170, 520, 90, 16));
         label_12->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         year_combo = new QComboBox(Dialog);
         year_combo->setObjectName(QStringLiteral("year_combo"));
@@ -148,6 +149,9 @@ public:
         draw_data_button = new QPushButton(Dialog);
         draw_data_button->setObjectName(QStringLiteral("draw_data_button"));
         draw_data_button->setGeometry(QRect(430, 510, 100, 40));
+        label_8 = new QLabel(Dialog);
+        label_8->setObjectName(QStringLiteral("label_8"));
+        label_8->setGeometry(QRect(40, 450, 311, 16));
 
         retranslateUi(Dialog);
 
@@ -176,6 +180,7 @@ public:
         Close_button->setText(QApplication::translate("Dialog", "Close", 0));
         label->setText(QApplication::translate("Dialog", "Hour", 0));
         draw_data_button->setText(QApplication::translate("Dialog", "Draw Data", 0));
+        label_8->setText(QApplication::translate("Dialog", "Daily Basis", 0));
     } // retranslateUi
 
 };

@@ -36,11 +36,16 @@
 #define Age_List_Num (10)
 #define Man (0)
 #define Woman (1)
-#define Normal_speed (2)
-#define Walk_speed (4)
-#define Normal_ratio (0.6)
-#define Walk_ratio (0.7)
-#define Running_ratio (0.8)
+//#define Normal_speed (2)
+//#define Walk_speed (4)
+#define Intensity_50_flag (0)
+#define Intensity_60_flag (1)
+#define Intensity_70_flag (2)
+#define Intensity_50_ratio (0.5)
+#define Intensity_60_ratio (0.6)
+#define Intensity_70_ratio (0.7)
+#define Unit_bpm_graph (40)
+#define Unit_temp_graph (5)
 namespace Ui {
 class MainWindow;
 }
@@ -71,6 +76,12 @@ private slots:
     void on_Man_button_clicked();
 
     void on_Woman_button_clicked();
+
+    void on_radio_50_clicked();
+
+    void on_radio_60_clicked();
+
+    void on_radio_70_clicked();
 
 private:
     Ui::MainWindow *ui;

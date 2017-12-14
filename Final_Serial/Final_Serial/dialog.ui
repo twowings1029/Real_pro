@@ -36,7 +36,7 @@
    <property name="geometry">
     <rect>
      <x>299</x>
-     <y>479</y>
+     <y>489</y>
      <width>93</width>
      <height>30</height>
     </rect>
@@ -52,7 +52,7 @@
    <property name="geometry">
     <rect>
      <x>299</x>
-     <y>460</y>
+     <y>470</y>
      <width>86</width>
      <height>16</height>
     </rect>
@@ -68,7 +68,7 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>529</y>
+     <y>539</y>
      <width>92</width>
      <height>30</height>
     </rect>
@@ -84,7 +84,7 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>479</y>
+     <y>489</y>
      <width>92</width>
      <height>30</height>
     </rect>
@@ -103,7 +103,7 @@
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>529</y>
+     <y>539</y>
      <width>93</width>
      <height>30</height>
     </rect>
@@ -119,7 +119,7 @@
    <property name="geometry">
     <rect>
      <x>299</x>
-     <y>510</y>
+     <y>520</y>
      <width>86</width>
      <height>16</height>
     </rect>
@@ -135,7 +135,7 @@
    <property name="geometry">
     <rect>
      <x>299</x>
-     <y>529</y>
+     <y>539</y>
      <width>93</width>
      <height>30</height>
     </rect>
@@ -177,7 +177,7 @@
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>460</y>
+     <y>470</y>
      <width>90</width>
      <height>16</height>
     </rect>
@@ -193,7 +193,7 @@
    <property name="geometry">
     <rect>
      <x>37</x>
-     <y>510</y>
+     <y>520</y>
      <width>85</width>
      <height>16</height>
     </rect>
@@ -202,14 +202,14 @@
     <string> tmp avg</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="bpm_max_label">
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>479</y>
+     <y>489</y>
      <width>93</width>
      <height>30</height>
     </rect>
@@ -238,7 +238,7 @@
    <property name="geometry">
     <rect>
      <x>37</x>
-     <y>460</y>
+     <y>470</y>
      <width>85</width>
      <height>16</height>
     </rect>
@@ -254,7 +254,7 @@
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>510</y>
+     <y>520</y>
      <width>90</width>
      <height>16</height>
     </rect>
@@ -363,6 +363,19 @@
    </property>
    <property name="text">
     <string>Draw Data</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>450</y>
+     <width>311</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Daily Basis</string>
    </property>
   </widget>
  </widget>

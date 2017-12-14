@@ -26,8 +26,13 @@ Dialog::Dialog(QWidget *parent) :
         ui->hour_combo->addItem(QString::number(i));
     }
     ui->bpm_plot->addGraph();
+	
     ui->bpm_plot->xAxis->setLabel("Time");
     ui->bpm_plot->yAxis->setLabel("Bpm");
+	ui->bpm_plot->xAxis->setLabelFont(QFont(QFont().family(), 7));
+	ui->bpm_plot->yAxis->setLabelFont(QFont(QFont().family(), 7));
+	ui->bpm_plot->xAxis->setTickLabelFont(QFont(QFont().family(), 7));
+	ui->bpm_plot->yAxis->setTickLabelFont(QFont(QFont().family(), 7));
     ui->bpm_plot->xAxis->setRange(0,Hour_To_Sec);
     ui->bpm_plot->yAxis->setRange(0,200);
     ui->bpm_plot->xAxis->setTickLabelType(QCPAxis::ltDateTime);
@@ -39,7 +44,11 @@ Dialog::Dialog(QWidget *parent) :
 
     ui->tmp_plot->addGraph();
     ui->tmp_plot->xAxis->setLabel("Time");
-    ui->tmp_plot->yAxis->setLabel("Temp(℃)");
+    ui->tmp_plot->yAxis->setLabel("Temp(deg)");
+	ui->tmp_plot->xAxis->setLabelFont(QFont(QFont().family(), 7));
+	ui->tmp_plot->yAxis->setLabelFont(QFont(QFont().family(), 7));
+	ui->tmp_plot->xAxis->setTickLabelFont(QFont(QFont().family(), 7));
+	ui->tmp_plot->yAxis->setTickLabelFont(QFont(QFont().family(), 7));
     ui->tmp_plot->xAxis->setRange(0,Hour_To_Sec);
     ui->tmp_plot->yAxis->setRange(20,40);
     ui->tmp_plot->xAxis->setTickLabelType(QCPAxis::ltDateTime);

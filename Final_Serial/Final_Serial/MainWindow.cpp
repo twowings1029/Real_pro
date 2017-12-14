@@ -15,6 +15,7 @@ static int velo_int_data;
 static int graph_time_criteria;
 static QString pulse_status;
 static int age_flag;
+static int intensity_flag;
 static int lup_bpm_table[Age_List_Num][2]=
 {
     //M,W
@@ -36,14 +37,19 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->bpm_label ->setText(".. Waiting ..");
     ui->tmp_label->setText(".. Waiting ..");
     ui->velo_label->setText(".. Waiting ..");
+    ui->Man_button->setChecked(true);
+    ui->radio_50->setChecked(true);
     for(int i=0;i<Age_List_Num;i++)
     {
-	    ui->age_combo->addItem(combo_age_table[i]);
+        ui->age_combo->addItem(combo_age_table[i]);
     }
-
 
     ui->bpm_plot->xAxis->setLabel("Time");
     ui->bpm_plot->yAxis->setLabel("Bpm");
+    ui->bpm_plot->xAxis->setLabelFont(QFont(QFont().family(), 7));
+    ui->bpm_plot->yAxis->setLabelFont(QFont(QFont().family(), 7));
+    ui->bpm_plot->xAxis->setTickLabelFont(QFont(QFont().family(), 7));
+    ui->bpm_plot->yAxis->setTickLabelFont(QFont(QFont().family(), 7));
     ui->bpm_plot->xAxis->setRange(0,Time_Interval);
     ui->bpm_plot->yAxis->setRange(0,200);
     ui->bpm_plot->xAxis->setTickLabelType(QCPAxis::ltDateTime);
@@ -51,17 +57,25 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->bpm_plot->xAxis->setDateTimeFormat("h:mm:ss");
     ui->bpm_plot->xAxis->setAutoTickStep(false);
     ui->bpm_plot->xAxis->setTickStep(Unit_Graph_time);
+    ui->tmp_plot->yAxis->setAutoTickStep(false);
+    ui->tmp_plot->yAxis->setTickStep(Unit_bpm_graph);
     ui->bpm_plot->replot();
 
     ui->tmp_plot->xAxis->setLabel("Time");
-    ui->tmp_plot->yAxis->setLabel("Temp(℃)");
+    ui->tmp_plot->yAxis->setLabel("Temp(deg)");
+    ui->tmp_plot->xAxis->setLabelFont(QFont(QFont().family(), 7));
+    ui->tmp_plot->yAxis->setLabelFont(QFont(QFont().family(), 7));
+    ui->tmp_plot->xAxis->setTickLabelFont(QFont(QFont().family(), 7));
+    ui->tmp_plot->yAxis->setTickLabelFont(QFont(QFont().family(), 7));
     ui->tmp_plot->xAxis->setRange(0,Time_Interval);
-    ui->tmp_plot->yAxis->setRange(20,40);
+    ui->tmp_plot->yAxis->setRange(10,40);
     ui->tmp_plot->xAxis->setTickLabelType(QCPAxis::ltDateTime);
     ui->tmp_plot->xAxis->setDateTimeSpec(Qt::UTC);
     ui->tmp_plot->xAxis->setDateTimeFormat("h:mm:ss");
     ui->tmp_plot->xAxis->setAutoTickStep(false);
     ui->tmp_plot->xAxis->setTickStep(Unit_Graph_time);
+    ui->tmp_plot->yAxis->setAutoTickStep(false);
+    ui->tmp_plot->yAxis->setTickStep(Unit_temp_graph);
     ui->tmp_plot->replot();
 
     port=new QSerialPort();
@@ -88,25 +102,27 @@ MainWindow::~MainWindow()
 void MainWindow::Is_Normal(QString &x)
 {
     int i;
-	QString Com_Age_Range = ui->age_combo->currentText();
+    QString Com_Age_Range=ui->age_combo->currentText();
     for(i=0;i<Age_List_Num;i++)
     {
         if(Com_Age_Range.compare(combo_age_table[i])==0) break;
     }
     int max_bpm=lup_bpm_table[i][age_flag];
     int normal_bpm;
-    if(velo_int_data<Normal_speed)
+
+    if(intensity_flag==Intensity_50_flag)
     {
-        normal_bpm=(int)(max_bpm*Normal_ratio);
+        normal_bpm=(int)(max_bpm*Intensity_50_ratio);
     }
-    else if(velo_int_data>=Normal_speed && velo_int_data<=Walk_speed)
+    else if(intensity_flag==Intensity_60_flag)
     {
-        normal_bpm=(int)(max_bpm*Walk_ratio);
+        normal_bpm=(int)(max_bpm*Intensity_60_ratio);
     }
     else
     {
-        normal_bpm=(int)(max_bpm*Running_ratio);
+        normal_bpm=(int)(max_bpm*Intensity_70_ratio);
     }
+    ui->pulse_target_label->setNum(normal_bpm);
     if(normal_bpm<bpm_int_data)
     {
         x.operator =("High");
@@ -139,7 +155,7 @@ void MainWindow::Read_data_from_arduino()
         ui->tmp_label->setNum(tmp_int_data);
         ui->velo_label->setNum(velo_int_data);
         Is_Normal(pulse_status);
-	    ui->pulse_status_label->setText(pulse_status);
+        ui->pulse_status_label->setText(pulse_status);
     }
 }
 
@@ -261,4 +277,22 @@ void MainWindow::on_Man_button_clicked()
 void MainWindow::on_Woman_button_clicked()
 {
     age_flag=Woman;
+}
+
+void MainWindow::on_radio_50_clicked()
+{
+    ui->radio_50->setChecked(true);
+    intensity_flag=Intensity_50_flag;
+}
+
+void MainWindow::on_radio_60_clicked()
+{
+    ui->radio_60->setChecked(true);
+    intensity_flag=Intensity_60_flag;
+}
+
+void MainWindow::on_radio_70_clicked()
+{
+    ui->radio_70->setChecked(true);
+    intensity_flag=Intensity_70_flag;
 }

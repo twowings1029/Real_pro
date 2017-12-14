@@ -210,10 +210,10 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>240</x>
       <y>440</y>
-      <width>120</width>
-      <height>91</height>
+      <width>91</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="title">
@@ -224,7 +224,7 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>90</width>
+       <width>70</width>
        <height>16</height>
       </rect>
      </property>
@@ -236,8 +236,8 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>50</y>
-       <width>90</width>
+       <y>40</y>
+       <width>70</width>
        <height>16</height>
       </rect>
      </property>
@@ -264,7 +264,7 @@
      <rect>
       <x>40</x>
       <y>520</y>
-      <width>91</width>
+      <width>60</width>
       <height>31</height>
      </rect>
     </property>
@@ -280,6 +280,93 @@
     <property name="text">
      <string/>
     </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>490</y>
+      <width>80</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Target bpm</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pulse_target_label">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>520</y>
+      <width>60</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="lineWidth">
+     <number>1</number>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>520</y>
+      <width>211</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Intensity</string>
+    </property>
+    <widget class="QRadioButton" name="radio_50">
+     <property name="geometry">
+      <rect>
+       <x>11</x>
+       <y>21</y>
+       <width>41</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>50%</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="radio_60">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>21</y>
+       <width>41</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>60%</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="radio_70">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>21</y>
+       <width>41</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>70%</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
