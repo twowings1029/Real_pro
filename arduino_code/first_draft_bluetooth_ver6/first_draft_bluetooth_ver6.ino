@@ -129,7 +129,6 @@ void loop(void)
     velocity=sqrt((vx*vx)+(vy*vy)+(vz*vz));
     if(((err=dht11.read(humi, temp))==0) && heartRateBPM>0 )
     {
-        Serial.println(heartRateBPM);
         BTSerial.print(heartRateBPM/3);
         BTSerial.print(" ");
         BTSerial.print((int)(temp+0.5f));

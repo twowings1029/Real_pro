@@ -1,10 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dialog.h"
-/*For raspberry pi*/
 static QString arduino_port_name="/dev/ttyACM0";
-/*For windows*/
-//static QString arduino_port_name="com5";
 static QString read_bpm_data;
 static QString file_dir="data.txt";
 static QVector <double> time_x(101),bpm_y(101),tmp_y(101);
@@ -189,8 +186,8 @@ void MainWindow::Save_Data()
         int sec=(Hour_To_Sec*hour_save)+(Min_To_Sec*min_save)+(sec_save);
         graph_time_criteria=sec-(sec%Unit_Graph_time);
     }
-    if(bpm_int_data>=Bpm_Lower_Bound && tmp_int_data>=Tmp_Lower_Bound)
-    {
+	if(bpm_int_data>=Bpm_Lower_Bound && bpm_int_data<=Bpm_Upper_Bound && tmp_int_data>=Tmp_Lower_Bound)
+	{
         time_x[graph_count]=(Hour_To_Sec*hour_save)+(Min_To_Sec*min_save)+(sec_save);
         bpm_y[graph_count]=bpm_int_data;
         tmp_y[graph_count++]=tmp_int_data;

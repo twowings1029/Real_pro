@@ -33,7 +33,7 @@
 #define Hour_To_Sec (3600)
 #define Time_Interval ((240)+(5))
 #define Min_To_Sec (60)
-#define Unit_Graph_time (30)
+#define Unit_Graph_time (40)
 #define Age_List_Num (10)
 #define Man (0)
 #define Woman (1)
