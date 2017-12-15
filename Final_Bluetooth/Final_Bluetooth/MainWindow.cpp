@@ -129,12 +129,10 @@ void MainWindow::Read_data_from_arduino()
 {
 	QString tmp_data = socket->readLine();
 	QChar enter_char = '\n';
-	qDebug() << tmp_data;
 	if (tmp_data.indexOf(enter_char) > -1)
 	{
 		trasmit_flag = Transmit_Success;
         cmp_data.append(tmp_data);
-		//qDebug() << cmp_data;
         QStringList cmp_list = cmp_data.split(" ");
         QString bpm_str=cmp_list.value(0);
         QString tmp_str=cmp_list.value(1);
