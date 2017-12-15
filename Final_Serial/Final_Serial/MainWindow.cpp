@@ -57,8 +57,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->bpm_plot->xAxis->setDateTimeFormat("h:mm:ss");
     ui->bpm_plot->xAxis->setAutoTickStep(false);
     ui->bpm_plot->xAxis->setTickStep(Unit_Graph_time);
-	ui->bpm_plot->yAxis->setAutoTickStep(false);
-	ui->bpm_plot->yAxis->setTickStep(Unit_bpm_graph);
+    ui->tmp_plot->yAxis->setAutoTickStep(false);
+    ui->tmp_plot->yAxis->setTickStep(Unit_bpm_graph);
     ui->bpm_plot->replot();
 
     ui->tmp_plot->xAxis->setLabel("Time");
@@ -149,7 +149,7 @@ void MainWindow::Read_data_from_arduino()
     tmp_int_data=tmp_str.toInt();
     velo_int_data=vel_str.toInt();
 
-    if(bpm_int_data>=Bpm_Lower_Bound&& tmp_int_data>=Tmp_Lower_Bound)
+    if(bpm_int_data>=Bpm_Lower_Bound && bpm_int_data<=Bpm_Upper_Bound && tmp_int_data>=Tmp_Lower_Bound)
     {
         ui->bpm_label->setNum(bpm_int_data);
         ui->tmp_label->setNum(tmp_int_data);
