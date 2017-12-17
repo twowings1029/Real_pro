@@ -146,7 +146,7 @@ void MainWindow::Read_data_from_arduino()
         tmp_int_data=tmp_str.toInt();
         velo_int_data=vel_str.toInt();
 
-        if(bpm_int_data>=Bpm_Lower_Bound&& Bpm_Upper_Bound<=Bpm_Upper_Bound && tmp_int_data>=Tmp_Lower_Bound)
+		if (bpm_int_data >= Bpm_Lower_Bound&& bpm_int_data <= Bpm_Upper_Bound && tmp_int_data >= Tmp_Lower_Bound)
         {
             ui->bpm_label->setNum(bpm_int_data);
             ui->tmp_label->setNum(tmp_int_data);
@@ -194,7 +194,7 @@ void MainWindow::Save_Data()
 			int sec = (Hour_To_Sec*hour_save) + (Min_To_Sec*min_save) + (sec_save);
 			graph_time_criteria = sec - (sec % Unit_Graph_time);
 		}
-		if(bpm_int_data>=Bpm_Lower_Bound&& Bpm_Upper_Bound<=Bpm_Upper_Bound && tmp_int_data>=Tmp_Lower_Bound)
+		if (bpm_int_data >= Bpm_Lower_Bound&& bpm_int_data <= Bpm_Upper_Bound && tmp_int_data >= Tmp_Lower_Bound)
 		{
 			time_x[graph_count] = (Hour_To_Sec*hour_save) + (Min_To_Sec*min_save) + (sec_save);
 			bpm_y[graph_count] = bpm_int_data;
@@ -214,7 +214,7 @@ void MainWindow::Save_Data()
 		if (file.open(QIODevice::ReadWrite | QIODevice::Text))
 		{
 			QTextStream stream(&file);
-			if(bpm_int_data>=Bpm_Lower_Bound&& Bpm_Upper_Bound<=Bpm_Upper_Bound && tmp_int_data>=Tmp_Lower_Bound)
+			if (bpm_int_data >= Bpm_Lower_Bound&& bpm_int_data <= Bpm_Upper_Bound && tmp_int_data >= Tmp_Lower_Bound)
 			{
 				while (stream.readLine() != "") ;
 				stream << day_cal << " ";

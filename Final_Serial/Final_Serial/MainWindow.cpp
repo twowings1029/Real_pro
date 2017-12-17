@@ -206,8 +206,8 @@ void MainWindow::Save_Data()
     if(file.open(QIODevice::ReadWrite | QIODevice :: Text))
     {
         QTextStream stream(&file);
-        if(read_bpm_data.toInt()>=Bpm_Lower_Bound && tmp_int_data>=Tmp_Lower_Bound)
-        {
+		if(bpm_int_data>=Bpm_Lower_Bound && bpm_int_data<=Bpm_Upper_Bound && tmp_int_data>=Tmp_Lower_Bound)
+		{
             while(stream.readLine()!="");
             stream<<day_cal<<" ";
             stream<<time<<" ";

@@ -33,7 +33,7 @@ MOVE          = move
 TAR           = 
 COMPRESS      = 
 DISTNAME      = Final_Serial1.0.0
-DISTDIR = C:/Users/student/Desktop/dir/Real_pro/Final_Serial/Final_Serial/Debug/Final_Serial1.0.0
+DISTDIR = C:/Users/student/Documents/1/Final_Serial/Final_Serial/Debug/Final_Serial1.0.0
 LINK          = C:/SysGCC/beaglebone/bin/arm-linux-gnueabihf-g++.exe
 LFLAGS        = 
 LIBS          = $(SUBLIBS) -lQt5PrintSupport -lQt5Widgets -lQt5Gui -lQt5SerialPort -lQt5Sql -lQt5Core -lGLESv2 -lpthread 
@@ -286,19 +286,22 @@ compiler_rcc_clean:
 compiler_moc_header_make_all: Debug/moc_dialog.cpp Debug/moc_qcustomplot.cpp Debug/moc_MainWindow.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) Debug/moc_dialog.cpp Debug/moc_qcustomplot.cpp Debug/moc_MainWindow.cpp
-Debug/moc_dialog.cpp: qcustomplot.h \
+Debug/moc_dialog.cpp: ../../../../../../SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql/QSqlDatabase \
+		qcustomplot.h \
 		dialog.h \
 		C:/SysGCC/beaglebone/Qt/v5/moc.exe
-	'C:\SysGCC\beaglebone\Qt\v5\moc.exe' $(DEFINES) -IC:/SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/arm-linux-gnueabihf -IC:/Users/student/Desktop/dir/Real_pro/Final_Serial/Final_Serial -IC:/Users/SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5 -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtPrintSupport -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtGui -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSerialPort -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtCore -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include/c++/6 -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include/c++/6/backward -Ic:/sysgcc/beaglebone/lib/gcc/arm-linux-gnueabihf/6/include -Ic:/sysgcc/beaglebone/lib/gcc/arm-linux-gnueabihf/6/include-fixed -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include dialog.h -o Debug/moc_dialog.cpp
+	'C:\SysGCC\beaglebone\Qt\v5\moc.exe' $(DEFINES) -IC:/SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/arm-linux-gnueabihf -IC:/Users/student/Documents/1/Final_Serial/Final_Serial -IC:/SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5 -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtPrintSupport -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtGui -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSerialPort -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtCore -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include/c++/6 -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include/c++/6/backward -Ic:/sysgcc/beaglebone/lib/gcc/arm-linux-gnueabihf/6/include -Ic:/sysgcc/beaglebone/lib/gcc/arm-linux-gnueabihf/6/include-fixed -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include dialog.h -o Debug/moc_dialog.cpp
 
 Debug/moc_qcustomplot.cpp: qcustomplot.h \
 		C:/SysGCC/beaglebone/Qt/v5/moc.exe
-	'C:\SysGCC\beaglebone\Qt\v5\moc.exe' $(DEFINES) -IC:/SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/arm-linux-gnueabihf -IC:/Users/student/Desktop/dir/Real_pro/Final_Serial/Final_Serial -IC:/Users/SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5 -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtPrintSupport -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtGui -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSerialPort -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtCore -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include/c++/6 -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include/c++/6/backward -Ic:/sysgcc/beaglebone/lib/gcc/arm-linux-gnueabihf/6/include -Ic:/sysgcc/beaglebone/lib/gcc/arm-linux-gnueabihf/6/include-fixed -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include qcustomplot.h -o Debug/moc_qcustomplot.cpp
+	'C:\SysGCC\beaglebone\Qt\v5\moc.exe' $(DEFINES) -IC:/SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/arm-linux-gnueabihf -IC:/Users/student/Documents/1/Final_Serial/Final_Serial -IC:/SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5 -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtPrintSupport -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtGui -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSerialPort -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtCore -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include/c++/6 -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include/c++/6/backward -Ic:/sysgcc/beaglebone/lib/gcc/arm-linux-gnueabihf/6/include -Ic:/sysgcc/beaglebone/lib/gcc/arm-linux-gnueabihf/6/include-fixed -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include qcustomplot.h -o Debug/moc_qcustomplot.cpp
 
-Debug/moc_MainWindow.cpp: qcustomplot.h \
+Debug/moc_MainWindow.cpp: ../../../../../../SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql/QSqlDatabase \
+		../../../../../../SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql/QtSql \
+		qcustomplot.h \
 		MainWindow.h \
 		C:/SysGCC/beaglebone/Qt/v5/moc.exe
-	'C:\SysGCC\beaglebone\Qt\v5\moc.exe' $(DEFINES) -IC:/SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/arm-linux-gnueabihf -IC:/Users/student/Desktop/dir/Real_pro/Final_Serial/Final_Serial -IC:/Users/SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5 -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtPrintSupport -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtGui -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSerialPort -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtCore -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include/c++/6 -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include/c++/6/backward -Ic:/sysgcc/beaglebone/lib/gcc/arm-linux-gnueabihf/6/include -Ic:/sysgcc/beaglebone/lib/gcc/arm-linux-gnueabihf/6/include-fixed -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include MainWindow.h -o Debug/moc_MainWindow.cpp
+	'C:\SysGCC\beaglebone\Qt\v5\moc.exe' $(DEFINES) -IC:/SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/arm-linux-gnueabihf -IC:/Users/student/Documents/1/Final_Serial/Final_Serial -IC:/SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5 -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtPrintSupport -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtWidgets -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtGui -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSerialPort -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtCore -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include/c++/6 -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include/c++/6/backward -Ic:/sysgcc/beaglebone/lib/gcc/arm-linux-gnueabihf/6/include -Ic:/sysgcc/beaglebone/lib/gcc/arm-linux-gnueabihf/6/include-fixed -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/include -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf -Ic:/sysgcc/beaglebone/arm-linux-gnueabihf/sysroot/usr/include MainWindow.h -o Debug/moc_MainWindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -326,15 +329,20 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 ####### Compile
 
 Debug/dialog.o: dialog.cpp dialog.h \
+		../../../../../../SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql/QSqlDatabase \
 		qcustomplot.h \
 		ui_dialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Debug/dialog.o dialog.cpp
 
 Debug/Final_Serial.o: Final_Serial.cpp mainwindow.h \
+		../../../../../../SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql/QSqlDatabase \
+		../../../../../../SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql/QtSql \
 		qcustomplot.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Debug/Final_Serial.o Final_Serial.cpp
 
 Debug/MainWindow.o: MainWindow.cpp mainwindow.h \
+		../../../../../../SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql/QSqlDatabase \
+		../../../../../../SysGCC/beaglebone/arm-linux-gnueabihf/sysroot/usr/include/arm-linux-gnueabihf/qt5/QtSql/QtSql \
 		qcustomplot.h \
 		ui_mainwindow.h \
 		dialog.h
