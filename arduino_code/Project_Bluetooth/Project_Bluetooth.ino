@@ -27,14 +27,18 @@
 #define HBDEBUG(i)
 
 #include <DHT11.h>
+#include <SoftwareSerial.h>
 #include<Wire.h>
-const int delayMsec = 60; // 100msec per sample
+#define BT_TX 11
+#define BT_RX 10
+const int delayMsec =40; 
 int analogPin=0;
 
 const int MPU=0x68;
 int pin=4;
 int16_t AcX,AcY,AcZ,GyX,GyY,GyZ;
 int16_t AcX_old, AcY_old, AcZ_old;
+SoftwareSerial BTSerial(BT_TX, BT_RX);
 DHT11 dht11(pin); 
 
 bool heartbeatDetected(int IRSensorPin, int delay)
@@ -86,6 +90,7 @@ bool heartbeatDetected(int IRSensorPin, int delay)
 void setup(void)
 {
   Serial.begin(115200);             
+  BTSerial.begin(115200);
   Wire.begin();
   Wire.beginTransmission(MPU);
   Wire.write(0x6B);
@@ -100,16 +105,18 @@ void loop(void)
   float vx,vy,vz,velocity;
   static int beatMsec = 0;
   int heartRateBPM = 0;
-  Wire.beginTransmission(MPU);
-  Wire.write(0x3B);
-  Wire.endTransmission(false);
-  Wire.requestFrom(MPU,14,true);
-  AcX_old=Wire.read()<<8|Wire.read();
-  AcY_old=Wire.read()<<8|Wire.read();
-  AcZ_old=Wire.read()<<8|Wire.read();
-  delay(50);
+  
   if (heartbeatDetected(analogPin, delayMsec)) 
   {
+    Wire.beginTransmission(MPU);
+    Wire.write(0x3B);
+    Wire.endTransmission(false);
+    Wire.requestFrom(MPU,14,true);
+    AcX_old=Wire.read()<<8|Wire.read();
+    AcY_old=Wire.read()<<8|Wire.read();
+    AcZ_old=Wire.read()<<8|Wire.read();
+    delay(50);
+    
     heartRateBPM = 20000 / beatMsec;
     Wire.beginTransmission(MPU);
     Wire.write(0x3B);
@@ -124,19 +131,20 @@ void loop(void)
     velocity=sqrt((vx*vx)+(vy*vy)+(vz*vz));
     if(((err=dht11.read(humi, temp))==0) && heartRateBPM>0 )
     {
-        Serial.print(heartRateBPM/3);
-        Serial.print(" ");
-        Serial.print((int)(temp+0.5f));
-        Serial.print(" ");
-        Serial.print((int)(velocity*3.6f));  //km/h
-        Serial.print(" ");
-        Serial.println(heartRateBPM%3);  
+        //Serial.println(heartRateBPM);
+        BTSerial.print(heartRateBPM/3);
+        BTSerial.print(" ");
+        BTSerial.print((int)(temp+0.5f));
+        BTSerial.print(" ");
+        BTSerial.print((int)(velocity*3.6f));  //km/h
+        BTSerial.print(" ");
+        BTSerial.println(heartRateBPM%3);  
         beatMsec = 0;
         delay(1950);
     }
   }
-  delay(delayMsec);
-  beatMsec += (delayMsec+5);
+  delay(delayMsec/2);
+  beatMsec += (delayMsec);
 }
 
 
