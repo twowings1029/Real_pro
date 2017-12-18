@@ -111,7 +111,7 @@ void loop(void)
     AcZ_old=Wire.read()<<8|Wire.read();
     delay(50);
     
-    heartRateBPM = 20000 / beatMsec;
+    heartRateBPM = 60000 / beatMsec;
     Wire.beginTransmission(MPU);
     Wire.write(0x3B);
     Wire.endTransmission(false);
