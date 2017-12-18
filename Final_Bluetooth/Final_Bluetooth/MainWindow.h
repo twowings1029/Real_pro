@@ -51,6 +51,8 @@
 #define Unit_temp_graph (5)
 #define Transmit_Success (1)
 #define Transmit_Fail (0)
+#define Normal_speed (2)
+#define walking_speed (5)
 namespace Ui {
 class MainWindow;
 }

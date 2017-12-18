@@ -33,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Galaxy HealthCare (Bluetooth Ver)");
     ui->bpm_label ->setText(".. Waiting ..");
     ui->tmp_label->setText(".. Waiting ..");
     ui->velo_label->setText(".. Waiting ..");
@@ -222,7 +223,19 @@ void MainWindow::Save_Data()
 				stream << read_bpm_data << " ";
 				stream << QString::number(tmp_int_data) << " ";
 				stream << QString::number(velo_int_data) << " ";
-				stream << pulse_status;
+				stream << pulse_status<<" ";
+				if (velo_int_data <= Normal_speed)
+				{
+					stream << "Ordinary";
+				}
+				else if (velo_int_data <= walking_speed)
+				{
+					stream << "Walking";
+				}
+				else
+				{
+					stream << "Running";
+				}
 				stream << endl;
 				file.flush();
 				file.close();

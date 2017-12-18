@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Galaxy HealthCare (Serial Ver)");
     ui->bpm_label ->setText(".. Waiting ..");
     ui->tmp_label->setText(".. Waiting ..");
     ui->velo_label->setText(".. Waiting ..");
@@ -54,8 +55,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->bpm_plot->xAxis->setDateTimeFormat("h:mm:ss");
     ui->bpm_plot->xAxis->setAutoTickStep(false);
     ui->bpm_plot->xAxis->setTickStep(Unit_Graph_time);
-    ui->tmp_plot->yAxis->setAutoTickStep(false);
-    ui->tmp_plot->yAxis->setTickStep(Unit_bpm_graph);
+	ui->bpm_plot->yAxis->setAutoTickStep(false);
+	ui->bpm_plot->yAxis->setTickStep(Unit_bpm_graph);
     ui->bpm_plot->replot();
 
     ui->tmp_plot->xAxis->setLabel("Time");
@@ -214,7 +215,19 @@ void MainWindow::Save_Data()
             stream<<read_bpm_data<<" ";
             stream<<QString::number(tmp_int_data)<<" ";
             stream<<QString::number(velo_int_data)<<" ";
-            stream<<pulse_status;
+            stream<<pulse_status<<" ";
+			if (velo_int_data <= Normal_speed)
+			{
+				stream << "Ordinary";
+			}
+			else if (velo_int_data <= walking_speed)
+			{
+				stream << "Walking";
+			}
+			else
+			{
+				stream << "Running";
+			}
             stream<<endl;
             file.flush();
             file.close();

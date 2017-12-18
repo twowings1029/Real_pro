@@ -18,6 +18,7 @@
 #define Min_To_Sec (60)
 #define Unit_bpm_graph (40)
 #define Unit_temp_graph (5)
+#define Previous_Bpm_time (600)
 namespace Ui {
 class Dialog;
 }

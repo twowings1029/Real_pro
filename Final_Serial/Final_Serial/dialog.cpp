@@ -7,6 +7,7 @@ Dialog::Dialog(QWidget *parent) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Previous Data");
     for(int i=0;i<Len_For_year;i++)
     {
         ui->year_combo->addItem(QString::number(i+Criteria_year));
@@ -37,7 +38,9 @@ Dialog::Dialog(QWidget *parent) :
     ui->bpm_plot->xAxis->setDateTimeSpec(Qt::UTC);
     ui->bpm_plot->xAxis->setDateTimeFormat("hh:mm");
     ui->bpm_plot->xAxis->setAutoTickStep(false);
-    ui->bpm_plot->xAxis->setTickStep(600);
+    ui->bpm_plot->xAxis->setTickStep(Previous_Bpm_time);
+    ui->tmp_plot->yAxis->setAutoTickStep(false);
+    ui->tmp_plot->yAxis->setTickStep(Unit_bpm_graph);
     ui->bpm_plot->replot();
 
     ui->tmp_plot->addGraph();
@@ -48,12 +51,14 @@ Dialog::Dialog(QWidget *parent) :
 	ui->tmp_plot->xAxis->setTickLabelFont(QFont(QFont().family(), 7));
 	ui->tmp_plot->yAxis->setTickLabelFont(QFont(QFont().family(), 7));
     ui->tmp_plot->xAxis->setRange(0,Hour_To_Sec);
-    ui->tmp_plot->yAxis->setRange(20,40);
+    ui->tmp_plot->yAxis->setRange(10,40);
     ui->tmp_plot->xAxis->setTickLabelType(QCPAxis::ltDateTime);
     ui->tmp_plot->xAxis->setDateTimeSpec(Qt::UTC);
     ui->tmp_plot->xAxis->setDateTimeFormat("hh:mm");
     ui->tmp_plot->xAxis->setAutoTickStep(false);
-    ui->tmp_plot->xAxis->setTickStep(600);
+    ui->tmp_plot->xAxis->setTickStep(Previous_Bpm_time);
+    ui->tmp_plot->yAxis->setAutoTickStep(false);
+    ui->tmp_plot->yAxis->setTickStep(Unit_temp_graph);
     ui->tmp_plot->replot();
 }
 
