@@ -137,7 +137,7 @@ void loop(void)
         delay(1950);
     }
   }
-  delay(delayMsec);
+  delay(delayMsec/2);
   beatMsec += (delayMsec);
 }
 
