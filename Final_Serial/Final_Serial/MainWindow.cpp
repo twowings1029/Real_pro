@@ -55,8 +55,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->bpm_plot->xAxis->setDateTimeFormat("h:mm:ss");
     ui->bpm_plot->xAxis->setAutoTickStep(false);
     ui->bpm_plot->xAxis->setTickStep(Unit_Graph_time);
-	ui->bpm_plot->yAxis->setAutoTickStep(false);
-	ui->bpm_plot->yAxis->setTickStep(Unit_bpm_graph);
+    ui->bpm_plot->yAxis->setAutoTickStep(false);
+    ui->bpm_plot->yAxis->setTickStep(Unit_bpm_graph);
     ui->bpm_plot->replot();
 
     ui->tmp_plot->xAxis->setLabel("Time");
@@ -182,12 +182,15 @@ void MainWindow::Save_Data()
     day_cal=day_cal.append(QString::number(month));
     day_cal=day_cal.append("-");
     day_cal=day_cal.append(QString::number(day));
+
     if(graph_count==0)
     {
         int sec=(Hour_To_Sec*hour_save)+(Min_To_Sec*min_save)+(sec_save);
         graph_time_criteria=sec-(sec%Unit_Graph_time);
     }
-	if(bpm_int_data>=Bpm_Lower_Bound && bpm_int_data<=Bpm_Upper_Bound && tmp_int_data>=Tmp_Lower_Bound)
+    if(bpm_int_data>=Bpm_Lower_Bound
+       && bpm_int_data<=Bpm_Upper_Bound
+       && tmp_int_data>=Tmp_Lower_Bound)
 	{
         time_x[graph_count]=(Hour_To_Sec*hour_save)+(Min_To_Sec*min_save)+(sec_save);
         bpm_y[graph_count]=bpm_int_data;
@@ -207,7 +210,9 @@ void MainWindow::Save_Data()
     if(file.open(QIODevice::ReadWrite | QIODevice :: Text))
     {
         QTextStream stream(&file);
-		if(bpm_int_data>=Bpm_Lower_Bound && bpm_int_data<=Bpm_Upper_Bound && tmp_int_data>=Tmp_Lower_Bound)
+        if(bpm_int_data>=Bpm_Lower_Bound &&
+           bpm_int_data<=Bpm_Upper_Bound &&
+           tmp_int_data>=Tmp_Lower_Bound)
 		{
             while(stream.readLine()!="");
             stream<<day_cal<<" ";
